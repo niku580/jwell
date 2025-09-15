@@ -1,0 +1,174 @@
+<%- include('./partials/header') %>
+
+<style>
+      .fade-up {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.6s ease;
+      }
+      .fade-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+ .shine-layer {
+    position: relative;
+    display: inline-block;
+    background-image: linear-gradient(90deg, #0C0950 0%, gold 50%, #0C0950 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shineText 3s linear infinite;
+  }
+
+  @keyframes shineText {
+    0% {
+      background-position: -100% 0;
+    }
+    100% {
+      background-position: 100% 0;
+    }
+  }
+    </style>  
+<!-- --------------------------------------------------------------------------- -->
+
+<div class="w-full h-[700px]  overflow-hidden relative">
+  <img id="sliderImage" src="/images/sBanner1.jpg" alt="Hero Banner" class="w-full h-full object-contain object-cover transition-opacity duration-1000 opacity-100" />
+</div>
+  <!-- Mobile Nav Menu -->
+<div id="mobileNavMenu" class="md:hidden bg-white w-full px-4 py-4 space-y-4 hidden border-b shadow">
+  <a href="/" class="block text-[#090040] hover:text-[#948979]">Home</a>
+  <a href="/collection" class="block text-[#090040] hover:text-[#948979]">Collections</a>
+  <a href="/about" class="block text-[#090040] hover:text-[#948979]">About</a>
+  <a href="/contact" class="block text-[#090040] hover:text-[#948979]">Contact</a>
+</div>
+
+
+  <!-- ----------------------------otp login model---------------------------------------------- -->
+  <!-- OTP Login Modal -->
+    <div id="otpLoginModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+      <div class="bg-white w-full max-w-sm p-6 rounded-lg shadow-lg animate__animated animate__fadeInDown">
+        <div class="text-right">
+          <button onclick="closeOtpLoginModal()" class="text-xl text-gray-500 hover:text-red-600">&times;</button>
+        </div>
+        <h2 class="text-xl font-bold text-center text-[#090040] mb-4">Login with OTP</h2>
+
+        <form onsubmit="verifyOtp(event)">
+          <!-- Contact Input -->
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Contact Number</label>
+            <input type="tel" id="phoneInput" required class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-[#948979]" placeholder="Enter your number">
+          </div>
+
+          <!-- OTP Input (hidden by default) -->
+          <div class="mb-4 hidden" id="otpSection">
+            <label class="block text-sm font-medium text-gray-700 mb-1">OTP</label>
+            <input type="text" required id="otpInput" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-[#948979]" placeholder="Enter OTP">
+          </div>
+
+          <!-- Buttons -->
+          <div class="text-center">
+            <button type="button" id="sendOtpBtn" onclick="sendOtp()" class="bg-[#090040] text-white px-6 py-2 rounded-md hover:bg-[#322b73] transition mb-2">
+              Send OTP
+            </button>
+            <button type="submit" id="verifyOtpBtn" class="bg-[#090040] text-white px-6 py-2 rounded-md hover:bg-[#322b73] transition hidden">
+              Verify & Login
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+<!-- ------------------------------------------------------------------------------------------- -->
+<div class="w-full bg-[#B9A2DD] py-2 flex items-center justify-between px-4 text-sm text-black">
+  
+  <button class="text-xl px-2 hover:scale-110 transition-transform">&lt;</button>
+  <p class="text-center flex-1 font-medium">
+    4th of July Sale!! Buy 2 get 10% off, Buy 4 get 20% off
+  </p>
+  <button class="text-xl px-2 hover:scale-110 transition-transform">&gt;</button>
+</div>
+    <!-- Spacer -->
+    <div class="h-12"></div>
+
+    <!-- Jewellery Collection Section -->
+    <section class=" mx-auto px-4 my-24 " >
+      <h2 class="text-3xl font-bold text-center text-[#0C0950] mb-10 font-serif tracking-widest italic relative overflow-hidden shining-text">
+            <span class="shine-layer">Our Premium Jewellery Collections</span>
+        </h2>
+
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-5">
+      <a href="/earring" class="block">
+        <div class="bg-white rounded-lg shadow-md p-4 overflow-hidden text-center hover:shadow-xl transition-transform duration-300 transform hover:scale-105" data-aos="fade-up">
+          <img src="images/e1.jpg" alt="Earrings" class="w-full h-[20vw] object-cover rounded-tr-3xl rounded-bl-3xl" />
+          <h3 class="mt-2 text-lg font-semibold text-[#090040]">Earrings</h3>
+        </div>
+      </a>
+
+
+      <a href="/bangles" class="block">
+         <div class="bg-white rounded-lg shadow-md p-4 overflow-hidden text-center hover:shadow-xl transition-transform duration-300 transform hover:scale-105" data-aos="fade-up">
+          <img src="images/b1.jpg" alt="Bangles" class="w-full h-[20vw] object-cover rounded-tr-3xl rounded-bl-3xl" />
+          <h3 class="mt-2 text-lg font-semibold text-[#090040]">Bangles</h3>
+        </div>
+      </a>
+
+      <a href="/necklace" class="block">
+          <div class="bg-white rounded-lg shadow-md p-4 overflow-hidden text-center hover:shadow-xl transition-transform duration-300 transform hover:scale-105" data-aos="fade-up">
+          <img src="images/n1.jpg" alt="Necklace" class="w-full h-[20vw] object-cover rounded-tr-3xl rounded-bl-3xl" />
+          <h3 class="mt-2 text-lg font-semibold text-[#090040]">Necklace</h3>
+        </div>
+      </a>
+
+      <a href="/ring" class="block">
+         <div class="bg-white rounded-lg shadow-md p-4 overflow-hidden text-center hover:shadow-xl transition-transform duration-300 transform hover:scale-105" data-aos="fade-up">
+          <img src="images/r1.jpg" alt="Rings" class="w-full h-[20vw] object-cover rounded-tr-3xl rounded-bl-3xl" />
+          <h3 class="mt-2 text-lg font-semibold text-[#090040]">Rings</h3>
+        </div>
+      </a>
+
+      <a href="/set" class="block">
+         <div class="bg-white rounded-lg shadow-md p-4 overflow-hidden text-center hover:shadow-xl transition-transform duration-300 transform hover:scale-105" data-aos="fade-up">
+          <img src="images/set1.jpg" alt="Jewellery Set" class="w-full h-[20vw] object-cover rounded-tr-3xl rounded-bl-3xl" />
+          <h3 class="mt-2 text-lg font-semibold text-[#090040]">Jewellery Set</h3>
+        </div>
+      </a>
+      <a href="/tika" class="block">
+        <div class="bg-white rounded-lg shadow-md p-4 overflow-hidden text-center hover:shadow-xl transition-transform duration-300 transform hover:scale-105" data-aos="fade-up">
+          <img src="images/tika1.jpg" alt="Jewellery Set" class="w-full h-[20vw] object-cover rounded-tr-3xl rounded-bl-3xl" />
+          <h3 class="mt-2 text-lg font-semibold text-[#090040]">Tika</h3>
+        </div>
+      </a>
+    </div>
+
+    </section>
+<script>
+  const imageList = [
+    "/images/eBanner.jpg",
+    "/images/eBanner2.jpg",
+    "/images/sBanner.jpg",
+    "/images/banner5.webp",
+    "/images/img01.webp"
+  ];
+
+  let currentIndex = 0;
+  const sliderImage = document.getElementById('sliderImage');
+
+  setInterval(() => {
+    // Fade out
+    sliderImage.classList.add('opacity-0');
+
+    // Wait for fade-out before changing image
+    setTimeout(() => {
+      currentIndex = (currentIndex + 1) % imageList.length;
+      sliderImage.src = imageList[currentIndex];
+
+      // Fade in
+      sliderImage.classList.remove('opacity-0');
+    }, 500); // match with tailwind `duration-1000` if needed
+  }, 3000); // 4 seconds
+</script>
+
+<%- include('./partials/footer') %>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+     <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+     <!-- Add this in <head> -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Gilda+Display&family=Great+Vibes&family=Sarina&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Gilda+Display&family=Great+Vibes&family=Sarina&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&family=Courgette&family=Federo&family=Gilda+Display&family=Great+Vibes&family=Love+Light&family=Monoton&family=Sarina&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- ---------------------------------otp login------------------------------------------------------------- -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<!-- ------------------------------------------------------------------------------------------------------------ -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  </head>
+</head>
+<body>
+
+
+<!-- ------------------------------------------------------------------------------------------------------------------ -->
+
+<!-- -------------------------------------------------------- -->
+<header class="fixed top-0 left-0 w-full bg-white px-4 py-4 flex justify-between items-center border-b z-50 shadow-md relative">
+  <!-- Desktop Navigation -->
+  <div class="hidden md:flex items-center text-base font-[Cinzel] text-[#090040] tracking-wider space-x-6">
+    <a href="/" class="hover:text-[#948979]">Home</a>
+
+    <div class="relative group">
+      <a href="/collection" class="hover:text-[#948979] flex items-center">Collections</a>
+      <div class="absolute top-full left-0 bg-white w-40 mt-1 rounded-md shadow-lg hidden group-hover:block z-10">
+        <a href="/earring" class="block p-2 hover:bg-gray-200 text-[#090040]">Earrings</a>
+        <a href="/bangles" class="block p-2 hover:bg-gray-200 text-[#090040]">Bangles</a>
+        <a href="/ring" class="block p-2 hover:bg-gray-200 text-[#090040]">Rings</a>
+        <a href="/set" class="block p-2 hover:bg-gray-200 text-[#090040]">Set</a>
+        <a href="/necklace" class="block p-2 hover:bg-gray-200 text-[#090040]">Necklace</a>
+        <a href="/tika" class="block p-2 hover:bg-gray-200 text-[#090040]">Tika</a>
+      </div>
+    </div>
+
+    <a href="/contact" class="hover:text-[#948979]">Contact</a>
+
+    <div class="relative group">
+      <a href="/about" class="hover:text-[#948979] flex items-center">About</a>
+      <div class="absolute top-full left-0 bg-white w-50 mt-2 rounded-md shadow-lg hidden group-hover:block z-20">
+        <a href="/about" class="block px-4 py-2 text-[#090040] hover:bg-gray-100 hover:text-[#948979]">About Us</a>
+        <a href="/craftsmanship" class="block px-4 py-2 text-[#090040] hover:bg-gray-100 hover:text-[#948979]">Our Craftsmanship</a>
+        <a href="/team" class="block px-4 py-2 text-[#090040] hover:bg-gray-100 hover:text-[#948979]">Our Team</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Center Logo -->
+  <div class="absolute left-1/2 transform -translate-x-1/2 text-center">
+    <h1 class="text-4xl font-bold tracking-widest text-blue-900" style="font-family: 'Cinzel Decorative', serif;">CELESTORA</h1>
+    <p class="text-xs text-gray-500 tracking-wider">"Crafted for Moments that Last Forever."</p>
+  </div>
+
+  <!-- Right side Icons + Mobile Toggle -->
+  <div class="flex items-center space-x-4 text-gray-700 text-lg relative">
+    <i class="far fa-heart cursor-pointer hidden md:inline-block"></i>
+    <i class="fas fa-shopping-cart relative cursor-pointer hidden md:inline-block" onclick="openCart()">
+      <span id="cartCount" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
+    </i>
+
+    <!-- Mobile Toggle and Menu (contained properly now) -->
+    <div class=" md:hidden">
+      <button id="mobileMenuButton" class="text-2xl text-[#090040]">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Menu opens inside header now -->
+      <div id="mobileNavMenu" class=" right-0 mt-3 bg-white w-52 rounded-md shadow-lg py-2 px-4 space-y-2 hidden z-50">
+        <a href="/" class="block text-[#090040] hover:text-[#948979]">Home</a>
+
+        <!-- Collections submenu -->
+        <div>
+          <button class="w-full text-left text-[#090040] hover:text-[#948979] font-medium" onclick="toggleSubMenu('collectionsMenu')">
+            Collections ▾
+          </button>
+          <div id="collectionsMenu" class="ml-3 mt-1 space-y-1 hidden">
+            <a href="/earring" class="block text-sm text-[#090040] hover:text-[#948979]">Earrings</a>
+            <a href="/bangles" class="block text-sm text-[#090040] hover:text-[#948979]">Bangles</a>
+            <a href="/ring" class="block text-sm text-[#090040] hover:text-[#948979]">Rings</a>
+            <a href="/set" class="block text-sm text-[#090040] hover:text-[#948979]">Set</a>
+            <a href="/necklace" class="block text-sm text-[#090040] hover:text-[#948979]">Necklace</a>
+            <a href="/tika" class="block text-sm text-[#090040] hover:text-[#948979]">Tika</a>
+          </div>
+        </div>
+
+        <!-- About submenu -->
+        <div>
+          <button class="w-full text-left text-[#090040] hover:text-[#948979] font-medium" onclick="toggleSubMenu('aboutMenu')">
+            About ▾
+          </button>
+          <div id="aboutMenu" class="ml-3 mt-1 space-y-1 hidden">
+            <a href="/about" class="block text-sm text-[#090040] hover:text-[#948979]">About Us</a>
+            <a href="/craftsmanship" class="block text-sm text-[#090040] hover:text-[#948979]">Our Craftsmanship</a>
+            <a href="/team" class="block text-sm text-[#090040] hover:text-[#948979]">Our Team</a>
+          </div>
+        </div>
+
+        <a href="/contact" class="block text-[#090040] hover:text-[#948979]">Contact</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+
+<!-- -------------------------------------Cart menu-------------------------------------------------------------- -->
+
+
+<!-- 🛒 Cart Modal -->
+<div id="cartModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex justify-center items-center">
+  <div class="bg-white p-6 rounded-lg w-full max-w-xl shadow-lg animate__animated animate__fadeInUp">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-xl font-bold text-[#090040]">Your Cart</h2>
+      <button onclick="closeCart()" class="text-2xl text-gray-500 hover:text-red-600">&times;</button>
+    </div>
+
+    <!-- CART ITEM -->
+     <!-- Inside Cart Modal -->
+<div id="cartItems" class="border-t border-b py-4 space-y-4">
+    <div class="border-t border-b py-4 space-y-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+          <img id="cartImage" src="/images/e8.jpg" alt="Product" class="w-16 h-16 object-cover rounded" />
+          <div>
+            <h3 id="cartTitle" class="font-medium text-[#090040]">Crystal Drop Earrings</h3>
+            <p class="text-sm text-gray-500">₹ <span id="cartUnitPrice">2499</span></p>
+          </div>
+        </div>
+</div>
+        <!-- Quantity Controls -->
+        <div class="flex items-center space-x-2">
+          <button onclick="decreaseQty()" class="bg-gray-200 px-2 rounded">−</button>
+          <span id="qty" class="w-6 text-center">1</span>
+          <button onclick="increaseQty()" class="bg-gray-200 px-2 rounded">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Total & Pay Button -->
+    <div class="mt-6 flex justify-between items-center">
+      <p class="text-lg font-semibold">Total: ₹ <span id="totalPrice">2499</span></p>
+      <button onclick="openPaymentForm()" class="bg-[#090040] text-white px-6 py-2 rounded hover:bg-[#322b73] transition">
+        Pay Now
+      </button>
+    </div>
+  </div>
+</div>
+<!-- -----------------------------------------payment form model--------------------------- -->
+    <!-- PAYMENT FORM MODAL -->
+<div id="paymentForm" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+  <div class="bg-white w-full max-w-md p-6 rounded-lg shadow-lg animate__animated animate__fadeInUp">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-xl font-bold text-[#090040]">Enter Payment Details</h2>
+      <button onclick="closePaymentForm()" class="text-xl text-gray-500 hover:text-red-600">&times;</button>
+    </div>
+
+ <form action="/submit-payment" method="POST">
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+        <input type="text" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-[#948979]" placeholder="John Doe">
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700 mb-1">Card Number</label>
+        <input type="text" maxlength="16" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-[#948979]" placeholder="1234 5678 9012 3456">
+      </div>
+
+      <div class="mb-4 grid grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Expiry</label>
+          <input type="text" maxlength="5" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-[#948979]" placeholder="MM/YY">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">CVV</label>
+          <input type="text" maxlength="4" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-[#948979]" placeholder="123">
+        </div>
+      </div>
+
+      <button type="submit" class="w-full bg-[#090040] text-white py-2 rounded-md hover:bg-[#322b73] transition">
+        Make Payment
+      </button>
+    </form>
+  </div>
+</div>
+
+<script>
+  let slideIndex = 0;
+  const totalSlides = 3;
+  const slideshowContainer = document.getElementById("slideshows");
+
+  function showSlides() {
+    slideIndex = (slideIndex) % totalSlides;
+    slideshowContainer.style.transform = `translateX(-${slideIndex * 100}vw)`;
+  }
+
+  setInterval(showSlides, 4000);
+</script>
+<!-- --------------------pay now------------------------------ -->
+
+<script>
+  function openPaymentForm() {
+    document.getElementById("paymentModal").classList.remove("hidden");
+  }
+
+  function closePaymentForm() {
+    document.getElementById("paymentModal").classList.add("hidden");
+  }
+
+  function submitPayment(event) {
+    event.preventDefault();
+    alert("Payment Submitted Successfully!");
+    closePaymentForm();
+    closeCart(); // Optional: close cart if open
+  }
+</script>
+
+<!-- -------------------------------------------------------- -->
+<script>
+  let qty = 1;
+  const pricePerItem = 2500;
+
+  function openCart() {
+    document.getElementById('cartModal').classList.remove('hidden');
+  }
+
+  function closeCart() {
+    document.getElementById('cartModal').classList.add('hidden');
+  }
+
+  function updateTotal() {
+    document.getElementById('qty').textContent = qty;
+    document.getElementById('totalPrice').textContent = qty * pricePerItem;
+  }
+
+  function increaseQty() {
+    qty++;
+    updateTotal();
+  }
+
+  function decreaseQty() {
+    if (qty > 1) {
+      qty--;
+      updateTotal();
+    }
+  }
+</script>
+<script>
+  function openPaymentForm() {
+    document.getElementById('paymentForm').classList.remove('hidden');
+  }
+
+  function closePaymentForm() {
+    document.getElementById('paymentForm').classList.add('hidden');
+  }
+
+  function submitPayment(event) {
+    event.preventDefault(); // prevent default form submission
+    alert("Payment submitted!"); // You can replace this with AJAX call
+    closePaymentForm(); // close the modal after submission
+  }
+</script>
+<!-- ----------------------------------------------------------------------- -->
+ <script>
+  setInterval(() => {
+    const h1 = document.querySelector('.shine');
+    h1.classList.remove('shine');
+    void h1.offsetWidth; // trigger reflow
+    h1.classList.add('shine');
+  }, 4000);
+</script>
+<!-- -------------------------------------------------------------------------------- -->
+
+<script>
+  const menuBtn = document.getElementById("mobileMenuButton");
+  const navMenu = document.getElementById("mobileNavMenu");
+
+  menuBtn.addEventListener("click", () => {
+    navMenu.classList.toggle("hidden");
+  });
+
+  function toggleSubMenu(id) {
+    const subMenu = document.getElementById(id);
+    subMenu.classList.toggle("hidden");
+  }
+</script>
+
+
+<!-- --------------------------------------------------------------------------------- -->
+
+<script src="slider.js"></script>
+<script src="/public/javascripts/cart.js"></script>
+

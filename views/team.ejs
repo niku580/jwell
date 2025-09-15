@@ -1,0 +1,29 @@
+<% include ./partials/header.ejs %>
+
+<section class="px-6 py-32 max-w-7xl mx-auto">
+  <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2 inline-block">
+     <span class="text-xl md:text-3xl  mb-6 text-center"> Our Team </span>
+  </h1>
+
+  <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+    <!-- Text Content -->
+    <div class="text-gray-600 text-4xl leading-7 space-y-6" style= "font-family: Tangerine, cursive">
+      <p>
+       At the heart of our organization is a passionate and dedicated team committed to excellence. Each member brings a unique set of skills, experiences, and creativity that drive our mission forward. We believe in collaboration, innovation, and a shared vision for delivering outstanding results. Whether it's design, development, support, or strategy — our team works together with integrity, enthusiasm, and a customer-first mindset to create meaningful impact every day.
+      </p>
+
+      <div class="flex flex-col py-24">
+          <h1>Sincerely</h1>
+          <h5 style= "font-family: Love Light, cursive">Peter Rawlinson</h5>
+          <h5 style= "font-family: Tangerine, cursive">ceo,celestora</h5>
+      </div>
+    </div>
+
+    <!-- Image -->
+    <div class="w-full">
+      <img src="/images/team.jpg" alt="AEF Parents" class="rounded shadow-lg w-full h-auto object-cover" />
+    </div>
+  </div>
+</section>
+
+<%- include('./partials/footer') %>

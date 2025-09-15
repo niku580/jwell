@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Celestora - Products</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <!-- ---------------------------------otp login------------------------------------------------------------- -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<!-- ------------------------------------------------------------------------------------------------------------ -->
+  <style>
+    .fade-in {
+      animation: fadeInUp 1s ease-in-out both;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body class="bg-white text-[#090040]">
+
+ <nav class="fixed top-0 left-0 w-full z-40 bg-white shadow">
+  
+
+  <!-- Logo + Navigation -->
+  <div class="max-w-7xl mx-auto px-4 flex items-center justify-between py-3">
+
+    <!-- Mobile Menu Button -->
+    <button id="menuToggle" class="text-2xl md:hidden text-[#090040]">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Logo Centered on Mobile -->
+     <div class="relative w-16 h-16 rounded-full overflow-hidden">
+      <a href="index.html" class="w-14 h-14 sm:w-16 sm:h-16">
+        <img src="images/logo.png" alt="Artist Wala Logo" class="w-full h-full object-contain" />
+      </a>
+    </div>
+
+    <!-- Desktop Nav -->
+    <div class="hidden md:flex items-center text-sm font-medium text-[#090040] space-x-6">
+      <a href="index.html" class="hover:text-[#948979]">Home</a>
+      <a href="about.html" class="hover:text-[#948979]">About</a>
+
+      <div class="relative group">
+        <a href="category.html" class="hover:text-[#948979] flex items-center">
+          Category <i class="ri-arrow-down-s-line ml-1 text-lg"></i>
+        </a>
+        <div class="absolute top-full left-0 bg-white w-40 mt-1 rounded-md shadow-lg hidden group-hover:block z-10">
+          <a href="earring.html" class="block p-2 hover:bg-gray-200 text-[#090040]">Earrings</a>
+          <a href="bangles.html" class="block p-2 hover:bg-gray-200 text-[#090040]">Bangles</a>
+          <a href="ring.html" class="block p-2 hover:bg-gray-200 text-[#090040]">Rings</a>
+          <a href="set.html" class="block p-2 hover:bg-gray-200 text-[#090040]">Set</a>
+          <a href="necklace.html" class="block p-2 hover:bg-gray-200 text-[#090040]">Necklace</a>
+        </div>
+      </div>
+
+      <a href="contact.html" class="hover:text-[#948979]">Contact</a>
+    </div>
+  </div>
+
+  <!-- Mobile Nav Menu -->
+  <div id="mobileMenu" class="md:hidden hidden px-6 pb-4 text-sm bg-white text-[#090040]">
+    <a href="index.html" class="block py-1 hover:text-[#948979]">Home</a>
+    <a href="about.html" class="block py-1 hover:text-[#948979]">About</a>
+    <a href="category.html" class="block py-1 hover:text-[#948979]">Category</a>
+    <a href="contact.html" class="block py-1 hover:text-[#948979]">Contact</a>
+  </div>
+  </nav>
+  <!-- Product Grid Section -->
+  <main class="pt-[130px] pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <h2 class="text-3xl font-bold tracking-tight text-center mb-12">Our Collection</h2>
+    <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+      <a href="#" class="group fade-in">
+        <img src="images/e1.jpg" alt="Earthen Bottle" class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-80 transition duration-300 xl:aspect-7/8">
+        <h3 class="mt-4 text-sm text-gray-700">Earrings</h3>
+        <p class="mt-1 text-lg font-medium text-gray-900">₹3,999</p>
+      </a>
+      <a href="#" class="group fade-in">
+        <img src="images/set1.jpg" alt="Nomad Tumbler" class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-80 transition duration-300 xl:aspect-7/8">
+        <h3 class="mt-4 text-sm text-gray-700">Set</h3>
+        <p class="mt-1 text-lg font-medium text-gray-900">₹2,499</p>
+      </a>
+      <a href="#" class="group fade-in">
+        <img src="images/b1.jpg" alt="Focus Refill" class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-80 transition duration-300 xl:aspect-7/8">
+        <h3 class="mt-4 text-sm text-gray-700">Bangles</h3>
+        <p class="mt-1 text-lg font-medium text-gray-900">₹1,899</p>
+      </a>
+      <a href="#" class="group fade-in">
+        <img src="images/R1.jpg" alt="Pencil" class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-80 transition duration-300 xl:aspect-7/8">
+        <h3 class="mt-4 text-sm text-gray-700">Rings</h3>
+        <p class="mt-1 text-lg font-medium text-gray-900">₹1,499</p>
+      </a>
+    </div>
+  </main>
+<footer class="bg-[#02222f] text-white py-12 px-4">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-8 text-sm">
+    
+    <!-- Left Column: Address + Payments -->
+    <div class="space-y-4">
+      <div class="flex space-x-2">
+      <h3 class="font-semibold mb-3">SHOP</h3>
+      </div>
+      <div class="leading-6">
+        <p>DAVID MORRIS INTERNATIONAL</p>
+        <p>180 NEW BOND STREET</p>
+        <p>LONDON</p>
+        <p>W1S 4RL</p>
+        <p>UNITED KINGDOM</p>
+      </div>
+    </div>
+
+    <!-- Column 2: SHOP -->
+    <div>
+      <h3 class="font-semibold mb-3">SHOP</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:underline">HIGH JEWELLERY</a></li>
+        <li><a href="#" class="hover:underline">FINE JEWELLERY</a></li>
+        <li><a href="#" class="hover:underline">WEDDING</a></li>
+        <li><a href="#" class="hover:underline">BESPOKE</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3: ABOUT US -->
+    <div>
+      <h3 class="font-semibold mb-3">ABOUT US</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:underline">CONTACT US</a></li>
+        <li><a href="#" class="hover:underline">OUR BOUTIQUES</a></li>
+        <li><a href="#" class="hover:underline">DELIVERY & RETURNS</a></li>
+        <li><a href="#" class="hover:underline">FAQ'S</a></li>
+        <li><a href="#" class="hover:underline">HERITAGE</a></li>
+        <li><a href="#" class="hover:underline">ETHICS & SOURCING</a></li>
+        <li><a href="#" class="hover:underline">MODERN SLAVERY STATEMENT</a></li>
+        <li><a href="#" class="hover:underline">TERMS & CONDITIONS</a></li>
+        <li><a href="#" class="hover:underline">PRIVACY POLICY</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 4: DM NEWS -->
+    <div>
+      <h3 class="font-semibold mb-3">DM NEWS</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:underline">JEWELLERY GUIDES</a></li>
+        <li><a href="#" class="hover:underline">GEMSTONES AND DIAMONDS</a></li>
+        <li><a href="#" class="hover:underline">WEDDING JEWELLERY</a></li>
+        <li><a href="#" class="hover:underline">EVENTS</a></li>
+        <li><a href="#" class="hover:underline">CELEBRITIES AND DAVID MORRIS</a></li>
+        <li><a href="#" class="hover:underline">VIEW ALL</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 5: Social -->
+    <div>
+      <h3 class="font-semibold mb-3">FOLLOW US</h3>
+      <div class="flex space-x-4 text-xl">
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>  
+
+
+<script src="script.js"></script>
+</body>
+</html>

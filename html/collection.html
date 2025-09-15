@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jewellery Collections | CELESTORA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- ---------------------------------otp login------------------------------------------------------------- -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<!-- ------------------------------------------------------------------------------------------------------------ -->
+    <style>
+      .fade-up {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.6s ease;
+      }
+      .fade-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+ .shine-layer {
+    position: relative;
+    display: inline-block;
+    background-image: linear-gradient(90deg, #0C0950 0%, gold 50%, #0C0950 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shineText 3s linear infinite;
+  }
+
+  @keyframes shineText {
+    0% {
+      background-position: -100% 0;
+    }
+    100% {
+      background-position: 100% 0;
+    }
+  }
+    </style>
+  </head>
+  <body class="bg-[#fefcf9]">
+    <!-- Fixed Header -->
+  <header class="fixed top-0 left-0 w-full bg-white px-4 py-4 flex justify-between items-center border-b z-50 shadow-md">
+  <!-- Left Navigation -->
+  <div class="hidden md:flex items-center text-base font-[Cinzel] text-[#090040] tracking-wider space-x-6">
+
+    <a href="index.html" class="hover:text-[#948979]">Home</a>
+    
+
+    <div class="relative group">
+      <a href="collection.html" class="hover:text-[#948979] flex items-center">
+        Collections
+      </a>
+      <div class="absolute top-full left-0 bg-white w-40 mt-1 rounded-md shadow-lg hidden group-hover:block z-10">
+        <a href="earring.html" class="block p-2 hover:bg-gray-200 text-[#090040]">Earrings</a>
+        <a href="bangles.html" class="block p-2 hover:bg-gray-200 text-[#090040]">Bangles</a>
+        <a href="ring.html" class="block p-2 hover:bg-gray-200 text-[#090040]">Rings</a>
+        <a href="set.html" class="block p-2 hover:bg-gray-200 text-[#090040]">Set</a>
+        <a href="necklace.html" class="block p-2 hover:bg-gray-200 text-[#090040]">Necklace</a>
+      </div>
+    </div>
+    <a href="about.html" class="hover:text-[#948979]">About</a>
+    <a href="contact.html" class="hover:text-[#948979]">Contact</a>
+  </div>
+
+  <!-- Center Logo -->
+  <div class="absolute left-1/2 transform -translate-x-1/2 text-center">
+    <h1 class="text-4xl font-bold tracking-widest text-blue-900" style="font-family: 'Cinzel Decorative', serif;">
+      CELESTORA
+    </h1>
+    <p class="text-xs text-gray-500 tracking-wider">"Crafted for Moments that Last Forever."</p>
+  </div>
+
+  <!-- Right Icons -->
+  <div class="flex space-x-4 text-gray-700 text-lg">
+    <i class="far fa-heart"></i>
+    <i class="far fa-user cursor-pointer" onclick="openOtpLoginModal()"></i>
+    <i class="fas fa-shopping-cart"></i>
+    <i class="fas fa-search"></i>
+  </div>
+  <!-- --------------------------------------------------------------------------- -->
+  <!-- Mobile Menu Button -->
+<button id="mobileMenuButton" class="md:hidden text-2xl text-[#090040]">
+  <i class="fas fa-bars"></i>
+</button>
+  </header>
+<!-- --------------------------------------------------------------------------- -->
+  <!-- Mobile Nav Menu -->
+<div id="mobileNavMenu" class="md:hidden bg-white w-full px-4 py-4 space-y-4 hidden border-b shadow">
+  <a href="index.html" class="block text-[#090040] hover:text-[#948979]">Home</a>
+  <a href="collection.html" class="block text-[#090040] hover:text-[#948979]">Collections</a>
+  <a href="about.html" class="block text-[#090040] hover:text-[#948979]">About</a>
+  <a href="contact.html" class="block text-[#090040] hover:text-[#948979]">Contact</a>
+</div>
+
+
+  <!-- ----------------------------otp login model---------------------------------------------- -->
+  <!-- OTP Login Modal -->
+    <div id="otpLoginModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+      <div class="bg-white w-full max-w-sm p-6 rounded-lg shadow-lg animate__animated animate__fadeInDown">
+        <div class="text-right">
+          <button onclick="closeOtpLoginModal()" class="text-xl text-gray-500 hover:text-red-600">&times;</button>
+        </div>
+        <h2 class="text-xl font-bold text-center text-[#090040] mb-4">Login with OTP</h2>
+
+        <form onsubmit="verifyOtp(event)">
+          <!-- Contact Input -->
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Contact Number</label>
+            <input type="tel" id="phoneInput" required class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-[#948979]" placeholder="Enter your number">
+          </div>
+
+          <!-- OTP Input (hidden by default) -->
+          <div class="mb-4 hidden" id="otpSection">
+            <label class="block text-sm font-medium text-gray-700 mb-1">OTP</label>
+            <input type="text" required id="otpInput" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-[#948979]" placeholder="Enter OTP">
+          </div>
+
+          <!-- Buttons -->
+          <div class="text-center">
+            <button type="button" id="sendOtpBtn" onclick="sendOtp()" class="bg-[#090040] text-white px-6 py-2 rounded-md hover:bg-[#322b73] transition mb-2">
+              Send OTP
+            </button>
+            <button type="submit" id="verifyOtpBtn" class="bg-[#090040] text-white px-6 py-2 rounded-md hover:bg-[#322b73] transition hidden">
+              Verify & Login
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+<!-- ------------------------------------------------------------------------------------------- -->
+
+    <!-- Spacer -->
+    <div class="h-32"></div>
+
+    <!-- Jewellery Collection Section -->
+    <section class="max-w-6xl mx-auto px-4 ">
+      <h2 class="text-3xl font-bold text-center text-[#0C0950] mb-10 font-serif tracking-widest italic relative overflow-hidden shining-text">
+            <span class="shine-layer">Our Premium Jewellery Collections</span>
+        </h2>
+
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-5">
+      <a href="earring.html" class="block">
+        <div class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow " data-aos="fade-up">
+          <img src="images/e1.jpg" alt="Earrings" class="w-full h-48 object-cover rounded" />
+          <h3 class="mt-2 text-lg font-semibold text-[#090040]">Earrings</h3>
+        </div>
+      </a>
+
+
+      <a href="bangles.html" class="block">
+         <div class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow " data-aos="fade-up">
+          <img src="images/b1.jpg" alt="Bangles" class="w-full h-48 object-cover rounded" />
+          <h3 class="mt-2 text-lg font-semibold text-[#090040]">Bangles</h3>
+        </div>
+      </a>
+
+      <a href="necklace.html" class="block">
+         <div class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow " data-aos="fade-up">
+          <img src="images/n1.jpg" alt="Necklace" class="w-full h-48 object-cover rounded" />
+          <h3 class="mt-2 text-lg font-semibold text-[#090040]">Necklace</h3>
+        </div>
+      </a>
+
+      <a href="ring.html" class="block">
+        <div class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow " data-aos="fade-up">
+          <img src="images/r1.jpg" alt="Rings" class="w-full h-48 object-cover rounded" />
+          <h3 class="mt-2 text-lg font-semibold text-[#090040]">Rings</h3>
+        </div>
+      </a>
+
+      <a href="set.html" class="block">
+        <div class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow " data-aos="fade-up">
+          <img src="images/set1.jpg" alt="Jewellery Set" class="w-full h-48 object-cover rounded" />
+          <h3 class="mt-2 text-lg font-semibold text-[#090040]">Jewellery Set</h3>
+        </div>
+      </a>
+    </div>
+
+    </section>
+
+    <footer class="bg-[#02222f] text-white py-12 px-4">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-8 text-sm">
+    
+    <!-- Left Column: Address + Payments -->
+    <div class="space-y-4">
+      <div class="flex space-x-2">
+      <h3 class="font-semibold mb-3">SHOP</h3>
+      </div>
+      <div class="leading-6">
+        <p>DAVID MORRIS INTERNATIONAL</p>
+        <p>180 NEW BOND STREET</p>
+        <p>LONDON</p>
+        <p>W1S 4RL</p>
+        <p>UNITED KINGDOM</p>
+      </div>
+    </div>
+
+    <!-- Column 2: SHOP -->
+    <div>
+      <h3 class="font-semibold mb-3">SHOP</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:underline">HIGH JEWELLERY</a></li>
+        <li><a href="#" class="hover:underline">FINE JEWELLERY</a></li>
+        <li><a href="#" class="hover:underline">WEDDING</a></li>
+        <li><a href="#" class="hover:underline">BESPOKE</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3: ABOUT US -->
+    <div>
+      <h3 class="font-semibold mb-3">ABOUT US</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:underline">CONTACT US</a></li>
+        <li><a href="#" class="hover:underline">OUR BOUTIQUES</a></li>
+        <li><a href="#" class="hover:underline">DELIVERY & RETURNS</a></li>
+        <li><a href="#" class="hover:underline">FAQ'S</a></li>
+        <li><a href="#" class="hover:underline">HERITAGE</a></li>
+        <li><a href="#" class="hover:underline">ETHICS & SOURCING</a></li>
+        <li><a href="#" class="hover:underline">MODERN SLAVERY STATEMENT</a></li>
+        <li><a href="#" class="hover:underline">TERMS & CONDITIONS</a></li>
+        <li><a href="#" class="hover:underline">PRIVACY POLICY</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 4: DM NEWS -->
+    <div>
+      <h3 class="font-semibold mb-3">DM NEWS</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:underline">JEWELLERY GUIDES</a></li>
+        <li><a href="#" class="hover:underline">GEMSTONES AND DIAMONDS</a></li>
+        <li><a href="#" class="hover:underline">WEDDING JEWELLERY</a></li>
+        <li><a href="#" class="hover:underline">EVENTS</a></li>
+        <li><a href="#" class="hover:underline">CELEBRITIES AND DAVID MORRIS</a></li>
+        <li><a href="#" class="hover:underline">VIEW ALL</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 5: Social -->
+    <div>
+      <h3 class="font-semibold mb-3">FOLLOW US</h3>
+      <div class="flex space-x-4 text-xl">
+        <a href="https://www.instagram.com/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>  
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+    <script>
+      // Fade up animation when scroll into view
+      const fadeUps = document.querySelectorAll(".fade-up");
+
+      const onScroll = () => {
+        fadeUps.forEach((el) => {
+          const top = el.getBoundingClientRect().top;
+          if (top < window.innerHeight - 100) {
+            el.classList.add("visible");
+          }
+        });
+      };
+
+      window.addEventListener("scroll", onScroll);
+      window.addEventListener("load", onScroll);
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
